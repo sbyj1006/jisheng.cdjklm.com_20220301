@@ -79,6 +79,32 @@
         <div style="display: inline-block; width: 100%; font-weight: bold; font-size: 16px; padding: 10px;">调度操作</div>
     </div>
     <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('本部/二级')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <div class="radio">
+
+                <label ><input id="benbu" name="ddtype" type="radio" value="1" /> 本部调度</label>
+                <label ><input id="erji" name="ddtype" type="radio" value="2" /> 二级调度</label>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('二级托运分部')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select id="c-pid" data-rule="required" class="form-control selectpicker" name="row[tuoy_admin_id]">
+                {foreach name="tuoyunListgs" item="vo"}
+                <option data-type="{$vo.shopuser}"  value="{$vo.id}" {in name="$vo.id" value="$row.tuoy_admin_id"}selected{/in}>{$vo.name}-{$vo.mobile}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+
+    <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('调度托运部人员')}:</label>
         <div class="col-xs-12 col-sm-8">
 

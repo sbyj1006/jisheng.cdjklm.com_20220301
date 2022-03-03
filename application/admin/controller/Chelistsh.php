@@ -40,6 +40,14 @@ class Chelistsh extends Backend
 
         $this->assign('tuoyunList',$tuoyunList);
 
+
+        $wherety['group_id']=2;
+        $wherety['shopuser']=1;
+        $wherety['status']=2;
+        $tuoyunList=Db::name('user')->where($wherety)->select();
+
+        $this->assign('tuoyunList',$tuoyunList);
+
         $this->view->assign("parentList", $categorydata);
         $this->view->assign("tuoy_ziyList", $this->model->getTuoyziyList());
     }
