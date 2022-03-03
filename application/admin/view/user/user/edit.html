@@ -7,15 +7,15 @@
         </div>
     </div>
     <div class="form-group {eq name='$row.group_id' value='2'} {else\} hide {/eq}" id="tuoyuns">
-        <label for="c-lastname" class="control-label col-xs-12 col-sm-2">{:__('所属托运公司')}:</label>
+        <label for="c-lastname" class="control-label col-xs-12 col-sm-2">{:__('所属托运公司')}:{$row.admin_id}</label>
         <div class="col-xs-12 col-sm-4">
 
-            <select class="form-control selectpicker">
+            <select class="form-control selectpicker" name="row[admin_id]">
                 <option value="" disabled>---请选择所属外部托运公司---</option>
                 {volist name="$wbtuoy" id="vo"}
-                <option value="{$vo.id}" disabled>{$vo.name}</option>
+                <option value="{$vo.id}" disabled >{$vo.name}</option>
                 {volist name="$vo.nclass" id="voo"}
-                <option value="{$voo.id}">├-{$voo.nickname}</option>
+                <option value="{$voo.id}" {eq name="$voo.id" value="$row.admin_id"} selected {else\} {/eq}>├-{$voo.nickname}</option>
 
                 {/volist}
                 {/volist}

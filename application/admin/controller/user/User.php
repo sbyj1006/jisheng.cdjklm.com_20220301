@@ -85,7 +85,7 @@ class User extends Backend
         }
 
 $this->assign('wbtuoy',$wbtuoy);
-        dump($wbtuoy);
+//        dump($wbtuoy);
 
         return parent::edit($ids);
     }
