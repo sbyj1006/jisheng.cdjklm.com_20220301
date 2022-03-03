@@ -128,7 +128,7 @@ class Admin extends Backend
                 }
                 $params['salt'] = Random::alnum();
                 $params['password'] = md5(md5($params['password']) . $params['salt']);
-                $params['avatar'] = '/assets/img/avatar.png'; //设置新管理员默认头像。
+                $params['avatar'] = '/public/assets/img/avatar.png'; //设置新管理员默认头像。
                 $result = $this->model->validate('Admin.add')->save($params);
                 if ($result === false) {
                     $this->error($this->model->getError());

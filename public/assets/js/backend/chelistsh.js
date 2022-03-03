@@ -78,6 +78,24 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
         },
         api: {
             bindevent: function () {
+
+
+                $(document).on("click", $("input[name='row[ddtype]']"), function () {
+                    if($("input[name='row[ddtype]']:checked").val()==2){
+                        $("#benbudd").addClass("hide");
+                        $("#erjidd").removeClass("hide");
+
+                        console.log(2)
+                    }else{
+
+                        $("#erjidd").addClass("hide");
+                        $("#benbudd").removeClass("hide");
+                        console.log(1)
+                    }
+
+                });
+
+
                 Form.api.bindevent($("form[role=form]"));
             }
         }

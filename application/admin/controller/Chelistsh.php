@@ -24,6 +24,9 @@ class Chelistsh extends Backend
     {
         parent::_initialize();
         $this->model = new \app\common\model\Chelistsh;
+        $deadmin = Session::get('admin');
+
+        $dejsz=Db::name('auth_group_access')->where('uid',$deadmin['id'])->find();
 
 
         $tree = Tree::instance();
@@ -33,19 +36,33 @@ class Chelistsh extends Backend
         foreach ($this->categorylist as $k => $v) {
             $categorydata[$v['id']] = $v;
         }
+        $tuoyunListgs=Db::name('admin')->alias('a')
+            ->join('auth_group_access aga','a.id = aga.uid')
+            ->where('aga.group_id',6)
+            ->select();
+
+
+        $this->assign('tuoyunListgs',$tuoyunListgs);
+
+        $deadmin = Session::get('admin');
+        $dejsz=Db::name('auth_group_access')->where('uid',$deadmin['id'])->find();
+
+        if($dejsz['group_id']==1){
+            $dejszall=Db::name('auth_group_access')->where('group_id',7)->select();
+            foreach ($dejszall as $k=>$v){
+                $allpt[$k]=$v['uid'];
+            }
+
+            $wherety['admin_id'] = ['in',$allpt];
+}else {
+    $wherety['admin_id'] = $deadmin['id'];
+}
         $wherety['group_id']=2;
         $wherety['shopuser']=1;
         $wherety['status']=2;
         $tuoyunList=Db::name('user')->where($wherety)->select();
-
-        $this->assign('tuoyunList',$tuoyunList);
-
-
-        $wherety['group_id']=2;
-        $wherety['shopuser']=1;
-        $wherety['status']=2;
-        $tuoyunList=Db::name('user')->where($wherety)->select();
-
+$this->assign('dejsz',$dejsz);
+//dump($dejsz);die();
         $this->assign('tuoyunList',$tuoyunList);
 
         $this->view->assign("parentList", $categorydata);
@@ -82,6 +99,11 @@ class Chelistsh extends Backend
 
     public function index()
     {
+        $deadmin = Session::get('admin');
+
+        $dejsz=Db::name('auth_group_access')->where('uid',$deadmin['id'])->find();
+
+
         //当前是否为关联查询
         $this->relationSearch = true;
         //设置过滤方法
@@ -92,6 +114,12 @@ class Chelistsh extends Backend
             if ($this->request->request('keyField'))
             {
                 return $this->selectpage();
+            }
+
+            if($dejsz){
+            if($dejsz['group_id']==6){
+                $map['tuoy_admin_id']=$deadmin['id'];
+            }
             }
             $map['tuoy_ziy']=1;
             $map['statue']=['in',[1,2]];
@@ -189,6 +217,7 @@ class Chelistsh extends Backend
      */
     public function edit($ids = null)
     {
+
         $row = $this->model->get($ids);
         if (!$row) {
             $this->error(__('No Results were found'));
@@ -220,6 +249,11 @@ class Chelistsh extends Backend
 
                     }else{
                         $params['tuoy_user_name']=$tyuser['nickname'].'-'.$tyuser['mobile'];
+                    }
+
+                    if($params['tuoy_admin_id']){
+                        $aduser=Db::name('admin')->where('id',$params['tuoy_admin_id'])->find();
+                        $params['tuoy_user_name']=$params['tuoy_user_name'].'('.$aduser['nickname'].')';
                     }
 
 //                    dump($params);die();
