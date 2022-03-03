@@ -1,0 +1,82 @@
+{include file="public/head" /}
+
+<body>
+
+
+
+
+{include file="public/header" /}
+
+
+{include file="public/banner" /}
+<!--内页-->
+<div class="w100 xxbreadcrumb">
+
+    <div class="container p0">
+        <div class="col-md-12 p8">
+            {include file="public/weizhi" /}
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="page-ny">
+
+    <div class="container p0">
+
+        {include file="public/middle" /}
+
+        <div class=" col-md-9 p0">
+            <div class="ny-page-r">
+                <div class="ny-r-tit">
+                    <div class="ny-tit-cn">
+                      相关案例
+                    </div>
+
+
+                </div>
+
+
+                <!--   无缩略图板式-->
+                <div class="col-md-12 p8">
+                    <div class="page-con mt20">
+
+
+                        <div class="h3 text-center">{$list.title}</div>
+                        <div class="news-note-x w100 text-center"> 浏览次数：{$list.dian}次  时间：<?php echo date("Y-m-d",strtotime($list['addtime']));?></div>
+                        <div class="page-con">
+
+                            {$list.content}
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+                <!--    有缩略图板式-->
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!--foot-->
+{include file="public/footer" /}
+</body>
+
+
+</html>

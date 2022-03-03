@@ -1,0 +1,197 @@
+{include file="public/head" /}
+
+<body>
+<div class="w100 yb-banner">
+    <div class="container-fluid p0">
+
+        <div class="swiper-container-b">
+            <div class="swiper-wrapper">
+
+                {volist name="banner" id="vo"}
+                <div class="swiper-slide">
+                    <a >
+                        <img src="{$vo.image}" class="ani center-block img-responsive"    swiper-animate-effect="fadeInUp"  swiper-animate-duration=".8s" alt="First slide">
+
+
+                    </a>
+                </div>
+                {/volist}
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+<div class="page-ny">
+
+    <div class="container p0">
+
+        <div class="page-con mt20">
+
+            <div class="col-md-12 p8">
+                <div class="huishouform">
+
+                    <form class="form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>车主类型</label>
+                                <select name="f_type" id="f_type" class="form-control myinputs">
+                                    <option value="个人" readonly="readonly">个人</option>
+
+                                    <option value="个人有经办人" readonly="readonly">个人有经办人</option>
+                                    <option value="企业" readonly="readonly">企业</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>车主姓名</label>
+                                <input class="form-control myinputs" placeholder="请输入您的姓名" type="text" id="f_name" name="f_name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>车主电话</label>
+                                <input class="form-control myinputs" placeholder="请输入您的电话" type="text" id="f_phone" name="f_phone">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>取车地址</label>
+                                <input class="form-control myinputs" placeholder="请输入您的地址" type="text" id="f_dizhi" name="f_dizhi">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>车辆类型</label>
+
+                                <select name="f_che" id="f_che" class="form-control myinputs">
+                                    <option value="s" readonly="readonly">请输入您的爱车</option>
+                                    {volist name="$chetype" id="vo"}
+                                    <option value="{$vo.name}">{$vo.name}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>车牌号码</label>
+                                <input class="form-control myinputs" placeholder="请输入您的车辆年限" type="text" id="f_chenum" name="f_chenum">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label>  <input type="radio" name="iscandrive" checked value="1"> 可行驶</label>
+                                <label><input type="radio" name="iscandrive" value="2"> 不可行驶</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>备注</label>
+                                <textarea class="form-control mytextarea" placeholder="请输入您的留言" id="remarks" name="remarks"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" onclick="huishousubmit()" class="btn mybtn">确认提交</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+<style>
+    .myinputs,.mytextarea{ border: 0; border-bottom: 1px solid #f5f5f5; box-shadow: inset 0 1px 1px rgba(0,0,0,0);}
+    .myinputs{line-height: 40px; height: 40px;}
+    .huishouform label{ padding-left: 10px;}
+    .mybtn{ color: #fff; line-height: 40px; height: 40px; border-radius: 100px; padding: 0;}
+</style>
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!--foot-->
+{include file="public/script" /}
+<script>
+    function huishousubmit() {
+        var f_name=$("input[name=f_name]").val();
+        var f_phone=$("input[name=f_phone]").val();
+        var f_dizhi=$("input[name=f_dizhi]").val();
+        var f_che=$("#f_che").val();
+        var f_year=$("input[name=f_year]").val();
+        var iscandrive=$("input[name=iscandrive]").val();
+        var f_type=$("#f_type").val()
+        var remarks=$("textarea[name=remarks]").val();
+        var f_chenum=$("input[name=f_chenum]").val();
+
+        if(!f_name)
+        {
+            alert('请填写姓名!');
+            return false;
+        }
+        if(!f_phone)
+        {
+            alert('请输入手机号码!');
+            return false;
+        }
+
+        //手机号
+        if(!/^1\d{10}$/.test(f_phone)){
+            alert('请输入正确手机号码！');
+            return false;
+        }
+
+        if(f_che=="s")
+        {
+            alert('请选择车辆类型!');
+            return false;
+        }
+
+        $.ajax({
+            async:false,
+            url:"{:url('Jshuishou/msg')}",
+            data:{f_name:f_name,f_phone:f_phone,f_dizhi:f_dizhi,f_che:f_che,iscandrive:iscandrive,f_type:f_type,f_chenum:f_chenum,remarks:remarks},
+            type:"POST",
+            datatype:"TEXT",
+            success:function(data){
+                if(data==1)
+                {
+                    alert("信息提交成功，我们会尽快与你联系！");
+                    window.location.href="/";
+                }
+                else
+                {
+                    alert("信息提交失败！");
+                }
+            }
+        });
+
+    }
+</script>
+</body>
+
+
+</html>

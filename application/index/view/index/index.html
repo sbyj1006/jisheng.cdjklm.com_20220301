@@ -1,0 +1,365 @@
+{include file="public/head" /}
+
+<body>
+
+
+
+{include file="public/navs" /}
+
+<div class="w100 yb-banner">
+    <div class="container-fluid p0">
+
+
+
+        <div class="swiper-container-b">
+            <div class="swiper-wrapper">
+
+                {volist name="banner" id="vo"}
+                <div class="swiper-slide">
+                    <a href="{$vo.url}">
+                        <img src="{$vo.image}" class="ani center-block img-responsive"    swiper-animate-effect="fadeInUp"  swiper-animate-duration=".8s" alt="First slide">
+                        <div class="text">
+                            <div class="texta color-fff ani"   swiper-animate-effect="fadeInUp" swiper-animate-duration=".8s" swiper-animate-delay=".5s" >
+                                {$vo.title}
+                            </div>
+                            <div class="textb color-fff ani"   swiper-animate-effect="fadeInUp" swiper-animate-duration=".8s" swiper-animate-delay=".5s" >
+                                {$vo.description}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {/volist}
+
+
+
+
+            </div>
+
+
+
+            <div class="ban-x">
+
+                <div class="container-fluid p0">
+
+                    <div class="col-md-10 col-md-offset-1">
+
+
+                        <div class="banx-cen">
+                            {volist name="$bannerx" id="vo"}
+                            <div class="ban-li">
+                                <img src="{$vo.image}" class="img-responsive">
+                                <span>{$vo.title}</span>
+                            </div>
+                            {/volist}
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-b  swiper-pagination-white"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev swiper-button-prev-b  swiper-button-white">  </div>
+        <div class="swiper-button-next swiper-button-next-b  swiper-button-white"> </div>
+
+
+
+
+    </div>
+
+
+
+</div>
+<div class="ban-sea">
+
+    <form class="ban-form" >
+
+        <div class="form-group">
+            <input class="form-control" placeholder="输入车架号查询车辆状态">
+        </div>
+        <div class="form-group sea-btn">
+            <span class="iconfont icon-sousuo"></span>
+            <input type="button" class="btn form-control" value="查询">
+        </div>
+
+    </form>
+
+</div>
+<div class="page-main ">
+    <div class="container p0">
+
+        <div class="col-md-12 p8">
+            <div class="page-tit ">
+                <div class="page-cn mt20">{$news_ta.ename} <span>{$news_ta.name}</span></div>
+                <div class="page-en">{$news_ta.description}</div>
+            </div>
+<div class="col-md-6">
+
+<div class="news-l">
+    <div class="swiper-wrapper">
+        {volist name="$news_tja" id="vo"}
+        <div class="swiper-slide">
+            <div class="news-div">
+
+                <div class="news-img-s">
+                    <a href="{:url('/news_detail/'.$vo['id'])}"> <img src="{$vo.image}" class="img-responsive"></a>
+                </div>
+
+                <div class="newsbody">
+                    <a href="{:url('/news_detail/'.$vo['id'])}" class="newstit">
+                        {$vo.title}
+                    </a>
+                    <div class="newsnote">
+                        {$vo.description}
+                    </div>
+                    <div class="news-top ">
+                        <div class="news-time">{$vo.addtime|strtotime|date="Y-m-d",###}</div>
+
+                    </div>
+                    <div class="newsmore">
+                        <a href="{:url('/news_detail/'.$vo['id'])}">READ MORE <div class="iconfont icon-jiantou7"></div></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {/volist}
+
+
+
+    </div>
+
+
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-new-p"></div>
+    <!-- Add Navigation -->
+    <div class="jiant-pre newsfy "> <span class="iconfont icon-jiantou5"></span> </div>
+    <div class="jiant-next newsfy "> <span class="iconfont icon-jiantou10"></span> </div>
+
+
+</div>
+
+
+</div>
+<div class="col-md-6">
+    <ul class="news-ul">
+        {volist name="$news_tjab" id="vo"}
+        <li class="w100">
+            <div class="news-div">
+
+                    <a href="{:url('/news_detail/'.$vo['id'])}" class="newstit">
+                        <span class="iconfont icon-jiantou10"></span>     {$vo.title}
+                    </a>
+
+            </div>
+        </li>
+        {/volist}
+
+    </ul>
+
+</div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<!---->
+<div class="page-main page-yous" style="background: url('{$youshi.image}')">
+    <div class="container p0">
+
+        <div class="col-md-12 p8">
+
+            <div class="yous-x">
+                <div class="yous-cen">
+
+                    {volist name="$syaboutx" id="vo"}
+                    <div class="yous-li">
+                        <div class="t">{$vo.title}<small>{$vo.titles}</small></div>
+                        <span>{$vo.description}</span>
+                    </div>
+                    {/volist}
+
+
+                </div>
+
+            </div>
+
+
+            <div class="page-tit page-tit-a mt60">
+                <div class="page-cn mt20">{$youshi.title} <span>{$youshi.titles}</span></div>
+                <div class="page-en">{$youshi.description}</div>
+            </div>
+
+            <div class="yous-cen">
+
+                {volist name="$youshix" id="vo"}
+                <div class="yous-li-b">
+                    <div class="t">{$vo.title}</div>
+                    <div class="notes">{$vo.description}</div>
+                </div>
+                {/volist}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!---->
+<div class="page-main ">
+    <div class="container p0">
+
+        <div class="col-md-12 p8">
+            <div class="page-tit ">
+                <div class="page-cn mt20">{$news_tb.ename} <span>{$news_tb.name}</span></div>
+                <div class="page-en">{$news_tb.description}</div>
+            </div>
+
+            <ul class="news-ul">
+                {volist name="$news_tjb" id="vo"}
+                <li class="col-md-4">
+                    <div class="news-div">
+
+                        <div class="news-img-s">
+                            <a href="{:url('/news_detail/'.$vo['id'])}"> <img src="{$vo.image}" class="img-responsive"></a>
+                        </div>
+
+                        <div class="newsbody">
+                            <a href="{:url('/news_detail/'.$vo['id'])}" class="newstit">
+                                {$vo.title}
+                            </a>
+                            <div class="newsnote">
+                                {$vo.description}
+                            </div>
+                            <div class="news-top ">
+                                <div class="news-time">{$vo.addtime|strtotime|date="Y-m-d",###}</div>
+
+                            </div>
+                            <div class="newsmore">
+                                <a href="{:url('/news_detail/'.$vo['id'])}">READ MORE <div class="iconfont icon-jiantou7"></div></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+                {/volist}
+
+            </ul>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="page-main page-case">
+    <div class="container-fluid p0">
+
+        <div class="col-md-11 col-md-offset-1 p0">
+
+            <div class="sy-case">
+
+                <div class="col-md-5">
+                    <div class="page-tit mt60">
+                        <div class="page-cn mt20">{$case_t.ename} <span>{$case_t.name}</span></div>
+                        <div class="page-en">{$case_t.description}</div>
+                    </div>
+
+                    <div class="case-tit sycase-tit">
+                        <a  href="{:url('/cases')}" class="cn">报废汽车回收</a>
+                        <div class="en">Scrap car recycling</div>
+                    </div>
+
+                    <div class="casemore">
+                        <a href="{:url('/cases')}"> <div class="iconfont icon-jiantou12"></div> 查看详情</a>
+                    </div>
+
+                </div>
+                <div class="col-md-7 p0">
+
+                    <img src="/public/home/images/caseimg.jpg" class="img-responsive">
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="page-main ">
+    <div class="container p0">
+
+        <div class="col-md-12 p8">
+            <div class="page-tit ">
+                <div class="page-cn mt20">{$news_tc.ename} <span>{$news_tc.name}</span></div>
+                <div class="page-en">{$news_tc.description}</div>
+            </div>
+
+            <ul class="news-ul">
+                {volist name="$news_tjc" id="vo"}
+                <li class="col-md-4">
+                    <div class="news-div">
+
+                        <div class="news-img-s">
+                            <a href="{:url('/news_detail/'.$vo['id'])}"> <img src="{$vo.image}" class="img-responsive"></a>
+                        </div>
+
+                        <div class="newsbody">
+                            <a href="{:url('/news_detail/'.$vo['id'])}" class="newstit">
+                                {$vo.title}
+                            </a>
+                            <div class="newsnote">
+                                {$vo.description}
+                            </div>
+                            <div class="news-top ">
+                                <div class="news-time">{$vo.addtime|strtotime|date="Y-m-d",###}</div>
+
+                            </div>
+                            <div class="newsmore">
+                                <a href="{:url('/news_detail/'.$vo['id'])}">READ MORE <div class="iconfont icon-jiantou7"></div></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+                {/volist}
+
+            </ul>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{include file="public/footer" /}
+
+{include file="public/script" /}
+
+</body>
+
+</html>

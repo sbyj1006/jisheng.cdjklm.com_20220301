@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- 语言 -->
+<html lang="zh">
+<head>
+    <!-- 字符编码格式 -->
+    <meta charset="UTF-8">
+    <!-- 浏览器兼容问题 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 网页标题 -->
+
+    <title>{if condition="isset($list.title)"}{$list.title}_{/if}{if condition="isset($ftitle.name)"}{$ftitle.name}_{/if}{if condition="isset($title.name)"}{$title.name}_{/if}{$seo_title}</title>
+    <meta name="keywords" content="{notempty name='$list.seo_keywords'}{$list.seo_keywords}_{/notempty}{$seo_keywords} " />
+    <meta name="description" content="{notempty name='$list.seo_description'}{$list.seo_description}_{/notempty}{$seo_description}" />
+
+    <!-- bootstrap的样式表 -->
+    <link href="/public/home/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/home/fonts/myicon/iconfont.css" rel="stylesheet">
+
+    <!-- 动画样式 -->
+    <link href="/public/home/css/animate.css" rel="stylesheet" >
+    <!-- 主要内容样式 -->
+    <link href="/public/home/css/jisheng.css?8" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/public/home/js/html5shiv.min.js"></script>
+    <script src="/public/home/js/respond.min.js"></script>
+    <![endif]-->
+</head>

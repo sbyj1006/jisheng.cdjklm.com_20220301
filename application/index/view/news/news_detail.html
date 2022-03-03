@@ -1,0 +1,74 @@
+{include file="public/head" /}
+
+<body>
+
+
+
+
+{include file="public/navs" /}
+
+
+{include file="public/banner" /}
+
+
+{include file="public/middle" /}
+<!--内页-->
+
+<div class="page-ny">
+
+    <div class="container p0">
+
+
+
+        <div class="col-md-12 p0">
+
+                <div class="page-con mt20">
+
+
+
+
+                    <h3 class="text-center news-tit-n">{$list.title}</h3>
+                    <div class="new-note-x w100 text-center">   浏览次数：{$list.dian}次 发布时间：{$list.addtime|strtotime|date="Y-m-d",###}</div>
+                    <div class=" w100 mt20 ">
+
+                        {$list.content}
+
+                    </div>
+                    <div class=" newlisbtn pt20">
+                        {notempty name="$prev"}
+                        <div class="col-md-12 text-left">
+
+                            <span class="mr10">[上一个]:<a href="{:url('/news_detail/'.$prev['id'])}">{$prev.title}</a> </span>
+
+                        </div>
+                        {/notempty}
+                        {notempty name="$next"}
+                        <div class="col-md-12 text-left clearfix">
+                            <span class="mr10">[下一个]:<a href="{:url('/news_detail/'.$next['id'])}">{$next.title}</a></span>
+
+                        </div>
+                        {/notempty}
+                    </div>
+
+
+
+
+                </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--foot-->
+{include file="public/footer" /}
+
+{include file="public/script" /}
+
+</body>
+
+
+</html>

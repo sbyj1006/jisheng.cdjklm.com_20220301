@@ -1,0 +1,47 @@
+{include file="public/head" /}
+
+<body>
+
+{include file="public/navs" /}
+
+{include file="public/banner" /}
+
+<!--内页-->
+
+{include file="public/middle" /}
+
+<div class="page-ny">
+
+    <div class="container p0">
+        <div class="col-md-12 p8">
+
+
+            <div class="page-tit">
+                <div class="page-cn">{$ftitle.name}</div>
+                <div class="page-en">{$ftitle.ename}</div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12 p8">
+            <div class="aboutcen">
+
+{$list.content}
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+
+<!--foot-->
+{include file="public/footer" /}
+{include file="public/script" /}
+</body>
+
+
+</html>

@@ -1,0 +1,134 @@
+{include file="public/head" /}
+
+<body>
+
+{include file="public/navs" /}
+
+{include file="public/banner" /}
+
+<!--内页-->
+
+{include file="public/middle" /}
+
+<div class="page-ny">
+
+    <div class="container p0">
+        <div class="col-md-12 p8">
+
+
+            <div class="page-tit">
+                <div class="page-cn">{$ftitle.name}</div>
+                <div class="page-en">{$ftitle.ename}</div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12 p8 tz-gallery">
+            <div class="aboutcen swiper-container">
+                <div class="swiper-wrapper">
+                    {volist name="$list" id="vo"}
+                    <div class="swiper-slide">
+                        <div class="aboutimg thumbnail">
+                            <a href="{$vo.image}" class="lightbox">
+                            <img src="{$vo.image}" class="img-responsive center-block">
+                            </a>
+                        </div>
+                    </div>
+
+                    {/volist}
+                    {volist name="$list" id="vo"}
+                    <div class="swiper-slide">
+                        <div class="aboutimg thumbnail">
+                            <a href="{$vo.image}" class="lightbox">
+                                <img src="{$vo.image}" class="img-responsive center-block">
+                            </a>
+                        </div>
+                    </div>
+
+                    {/volist}
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+<!--foot-->
+{include file="public/footer" /}
+{include file="public/script" /}
+
+<link rel="stylesheet" href="/public/home/css/baguetteBox.min.css">
+<script type="text/javascript" src="/public/home/js/baguetteBox.min.js"></script>
+<script type="text/javascript">
+    baguetteBox.run('.tz-gallery');
+</script>
+
+<style>
+    .aboutcen{ width: 100%; overflow: hidden;}
+    .aboutcen .swiper-wrapper{ width:auto;}
+    .aboutcen .swiper-slide{ width: 300px; }
+
+    .gallery-container h1 {
+        text-align: center;
+        margin-top: 70px;
+        font-family: 'Droid Sans', sans-serif;
+        font-weight: bold;
+        color: #58595a;
+    }
+
+    .gallery-container p.page-description {
+        text-align: center;
+        margin: 30px auto;
+        font-size: 18px;
+        color: #85878c;
+    }
+
+    /* Styles for the gallery */
+
+    .tz-gallery {
+        padding: 40px;
+    }
+
+    .tz-gallery .thumbnail {
+        padding: 0;
+        margin-bottom: 30px;
+        border: none;
+    }
+
+    .tz-gallery img {
+        border-radius: 2px;
+    }
+
+    .tz-gallery .caption{
+        padding: 26px 30px;
+        text-align: center;
+    }
+
+    .tz-gallery .caption h3 {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 0;
+    }
+
+    .tz-gallery .caption p {
+        font-size: 12px;
+        color: #7b7d7d;
+        margin: 0;
+    }
+
+    .baguetteBox-button {
+        background-color: transparent !important;
+    }
+</style>
+
+
+</body>
+
+
+</html>

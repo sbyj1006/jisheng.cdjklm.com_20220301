@@ -1,0 +1,85 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('回收人员')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_name" class="form-control" name="row[user_name]" type="text" value="{$row.user_name|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('品牌')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pinpai" class="form-control" name="row[pinpai]" type="text" value="{$row.pinpai|htmlentities}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('车牌号')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-chepainum" class="form-control" name="row[chepainum]" type="text" value="{$row.chepainum|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('入场编号')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ruchangbianhao" class="form-control " rows="5" name="row[ruchangbianhao]" value="{$row.ruchangbianhao|htmlentities}" cols="50">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('客户姓名')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-f_name" class="form-control " rows="5" name="row[f_name]" value="{$row.f_name|htmlentities}" cols="50">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('客户电话')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-f_phone" class="form-control " rows="5" name="row[f_phone]" value="{$row.f_phone|htmlentities}" cols="50">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Images')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-chefileList" class="form-control" size="50" style="display: none" name="row[chefileList]" type="text" value="{$row.chefileList|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-chefileList" class="btn btn-danger plupload" data-input-id="c-chefileList" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="true" data-preview-id="p-chefileList"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-chefileList" class="btn btn-primary fachoose" data-input-id="c-chefileList" data-mimetype="image/*" data-multiple="true"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-chefileList"></span>
+            </div>
+            <ul class="row list-inline plupload-preview" id="p-chefileList"></ul>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('入库日期')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-createtime" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[createtime]" type="text" value="{$row.createtime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('托运/自运')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="tuoy_ziyList" item="vo"}
+            <label for="row[tuoy_ziy]-{$key}"><input id="row[tuoy_ziy]-{$key}" name="row[tuoy_ziy]" type="radio" value="{$key}" {in name="key" value="$row.tuoy_ziy"}checked{/in} /> {$vo}</label>
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

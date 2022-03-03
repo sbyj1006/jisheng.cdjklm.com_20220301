@@ -1,0 +1,175 @@
+
+<script src="/public/home/js/jquery-1.11.0.min.js"></script>
+<script src="/public/home/js/bootstrap.js"></script>
+<script src="/public/home/js/bootsnav.js"></script>
+<!--二维码弹出js	-->
+
+<link href="/public/home/swiper5/css/swiper.min.css?v=1" rel="stylesheet">
+<script src="/public/home/swiper5/js/swiper.min.js"></script>
+<script src="/public/home/swiper5/js/swiper.animate1.0.3.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container-b', {
+        speed: 600,
+        parallax: true,
+        autoHeight: true, //高度随内容变化
+        pagination: {
+            el: '.swiper-pagination-b',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next-b',
+            prevEl: '.swiper-button-prev-b',
+        },
+        loopedSlides: 5,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+        },
+        on:{
+            init: function(){
+                swiperAnimateCache(this); //隐藏动画元素
+                this.emit('slideChangeTransitionEnd');//在初始化时触发一次slideChangeTransitionEnd事件
+            },
+            slideChangeTransitionEnd: function(){
+                swiperAnimate(this); //每个slide切换结束时运行当前slide动画
+//                this.slides.eq(this.activeIndex).find('.ani').removeClass('ani');//动画只展示一次
+            }
+        },
+    });
+
+
+    var swiper = new Swiper('.news-l', {
+        speed: 600,
+        parallax: true,
+        autoplay: {
+            delay: 4000,//1秒切换一次
+        },
+
+        loop: true,
+        pagination: {
+            el: '.swiper-new-p',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.jiant-pre',
+            prevEl: '.jiant-next',
+        },
+        on:{
+            init: function(){
+                swiperAnimateCache(this); //隐藏动画元素
+                this.emit('slideChangeTransitionEnd');//在初始化时触发一次slideChangeTransitionEnd事件
+            },
+            slideChangeTransitionEnd: function(){
+                swiperAnimate(this); //每个slide切换结束时运行当前slide动画
+                this.slides.eq(this.activeIndex).find('.ani').removeClass('ani');//动画只展示一次
+            }
+        }
+    });
+
+
+
+    if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))){
+        //phone
+        var swiper=new Swiper('.cp-ser',{
+            slidesPerView:1,
+            spaceBetween:15,
+            loopedSlides: 1,
+            loop: true,
+            autoplay: {
+                delay: 6500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.news-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.cp-ser-next',
+                prevEl: '.cp-ser-prev',
+            },
+        })
+
+
+        var swiper=new Swiper('.aboutcen',{
+            slidesPerView:2,
+            spaceBetween:15,
+            loopedSlides: 1,
+            loop: true,
+            speed:3500,//匀速时间
+            autoplay: {
+                delay: 0,
+                stopOnLastSlide: false,
+                disableOnInteraction: false,
+            },
+        })
+
+    }else {
+        //PC
+        var swiper=new Swiper('.cp-ser',{
+            slidesPerView:3,
+            spaceBetween:25,
+            loopedSlides: 1,
+            loop: true,
+            autoplay: {
+                delay: 6500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.news-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.cp-ser-next',
+                prevEl: '.cp-ser-prev',
+            },
+        });
+
+        var swiper=new Swiper('.aboutcen',{
+            slidesPerView:4,
+            spaceBetween:15,
+            loopedSlides: 1,
+            loop: true,
+            speed:4000,//匀速时间
+            autoplay: {
+                delay: 0,
+                stopOnLastSlide: false,
+                disableOnInteraction: false,
+            },
+        })
+
+
+
+    }
+
+
+    $(function(){
+        var img = $(".cp-serz-img");
+        realWidth =img.width();
+        // alert(realWidth);
+        realHeight = realWidth*0.6;
+        img.css({height:realHeight});
+
+
+        var img1 = $(".jk-img");
+        realWidth =img1.width();
+        // alert(realWidth);
+        realHeight = realWidth*0.6;
+        img1.css({height:realHeight});
+    });
+
+    $(window).resize(function(){
+        var img = $(".cp-serz-img");
+        realWidth =img.width();
+        // alert(realWidth);
+        realHeight = realWidth*0.6;
+        img.css({height:realHeight});
+
+        var img1 = $(".jk-img");
+        realWidth =img1.width();
+        // alert(realWidth);
+        realHeight = realWidth*0.6;
+        img1.css({height:realHeight});
+    })
+
+
+</script>

@@ -1,0 +1,112 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <!--<div class="form-group">-->
+        <!--<label for="c-type" class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+
+            <!--<select id="c-type" data-rule="required" class="form-control selectpicker" name="row[type]">-->
+                <!--{foreach name="typeList" item="vo"}-->
+                <!--<option value="{$key}" {in name="key" value="$row.type"}selected{/in}>{$vo}</option>-->
+                <!--{/foreach}-->
+            <!--</select>-->
+
+        <!--</div>-->
+    <!--</div>-->
+    <div class="form-group">
+        <label for="c-pid" class="control-label col-xs-12 col-sm-2">{:__('Pid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select id="c-pid" data-rule="required" class="form-control selectpicker" name="row[pid]">
+                {foreach name="parentList" item="vo"}
+                <option data-type="{$vo.type}" class="{:$vo.type==$row.type||$vo.type=='all'?'':'hide'}" value="{$key}" {in name="key" value="$row.pid"}selected{/in}>{$vo.name}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-name" class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" data-rule="required" class="form-control" name="row[name]" type="text" value="{$row.name|htmlentities}">
+        </div>
+    </div>
+
+<!--    <div class="form-group">-->
+<!--        <label for="c-ename" class="control-label col-xs-12 col-sm-2">英文名称:</label>-->
+<!--        <div class="col-xs-12 col-sm-8">-->
+<!--            <input id="c-nickname"  class="form-control" name="row[ename]" type="text" value="{$row.ename|htmlentities}">-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="form-group">
+        <label for="c-dan_price" class="control-label col-xs-12 col-sm-2">{:__('单价')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dan_price" class="form-control" name="row[dan_price]" type="number" value="{$row.dan_price}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-kouzabili" class="control-label col-xs-12 col-sm-2">{:__('扣杂比例%')}:</label>
+        <div class="col-xs-12 col-sm-8" style="position: relative">
+            <input id="c-kouzabili" class="form-control" name="row[kouzabili]" type="number" value="{$row.kouzabili}">
+            <div style="position: absolute; right: 50px; top: 7px;">%</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-min_zhong" class="control-label col-xs-12 col-sm-2">{:__('最小整备质量（kg）')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-min_zhong" class="form-control" name="row[min_zhong]" type="number" value="{$row.min_zhong}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-max_zhong" class="control-label col-xs-12 col-sm-2">{:__('最大整备质量（kg）')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-max_zhong" class="form-control" name="row[max_zhong]" type="number" value="{$row.max_zhong}">
+        </div>
+    </div>
+<!--    <div class="form-group">-->
+<!--        <label for="c-flag" class="control-label col-xs-12 col-sm-2">{:__('Flag')}:</label>-->
+<!--        <div class="col-xs-12 col-sm-8">-->
+
+<!--            <select  id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">-->
+<!--                {foreach name="flagList" item="vo"}-->
+<!--                <option value="{$key}" {in name="key" value="$row.flag"}selected{/in}>{$vo}</option>-->
+<!--                {/foreach}-->
+<!--            </select>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="c-image" class="control-label col-xs-12 col-sm-2">{:__('Image')}:</label>-->
+<!--        <div class="col-xs-12 col-sm-8">-->
+<!--            <div class="input-group">-->
+<!--                <input id="c-image" class="form-control" size="35" name="row[image]" type="text" value="{$row.image}">-->
+<!--                <div class="input-group-addon no-border no-padding">-->
+<!--                    <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>-->
+<!--                    <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>-->
+<!--                </div>-->
+<!--                <span class="msg-box n-right"></span>-->
+<!--            </div>-->
+<!--            <ul class="row list-inline plupload-preview" id="p-image"></ul>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="form-group">
+        <label for="c-rank" class="control-label col-xs-12 col-sm-2">权重:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-rank" class="form-control" name="row[rank]" type="number" value="{$row.rank|htmlentities}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[status]', ['normal'=>__('Normal'), 'hidden'=>__('Hidden')], $row['status'])}
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

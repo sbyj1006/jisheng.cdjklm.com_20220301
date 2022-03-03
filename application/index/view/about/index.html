@@ -1,0 +1,71 @@
+{include file="public/head" /}
+
+<body>
+
+{include file="public/navs" /}
+
+{include file="public/banner" /}
+
+<!--内页-->
+
+{include file="public/middle" /}
+
+<div class="page-ny">
+
+    <div class="container p0">
+        <div class="col-md-12 p8">
+
+
+                    <div class="page-tit">
+                        <div class="page-cn">{$ftitle.name}</div>
+                        <div class="page-en">{$ftitle.ename}</div>
+                    </div>
+
+        </div>
+        {volist name="$list" id="vo"}
+        <div class="col-md-12 p8">
+            <div class="aboutcen">
+                <div class="col-md-6 p0">
+
+                    <div class="aboutimg">
+                        <img src="{$vo.image}" class="img-responsive center-block">
+                    </div>
+
+                </div>
+                <div class="col-md-6 p0">
+
+                    <div class="aboutbody">
+
+                        <!---->
+                        <div class="about-tit">
+                            <span class="iconfont icon-gouxuan1"></span> {$vo.title}
+                        </div>
+                        <div class="pagecen nyaboutcon">
+                            {$vo.content}
+
+                        </div>
+                        <hr>
+                        <!---->
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        {/volist}
+
+    </div>
+
+</div>
+
+
+<!--foot-->
+{include file="public/footer" /}
+{include file="public/script" /}
+</body>
+
+
+</html>

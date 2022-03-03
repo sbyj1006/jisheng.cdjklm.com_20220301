@@ -1,0 +1,102 @@
+<div class="foota">
+    <div class="links">
+        <div class="container-fluid p0">
+
+            <div class="col-md-10 col-md-offset-1">
+                <div class="linkstit">
+                    友情链接：
+                </div>
+                <div class="linkscon">
+{volist name="$link" id="vo"}
+                    <a href="{$vo.url}" class="links-a" target="_blank">{$vo.title}</a>
+{/volist}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid p0">
+
+        <div class="col-md-10 col-md-offset-1">
+
+            <div class="col-md-6 p8">
+
+                <div class="w100">
+                    <div class="foottit"><img src="{$information.dlogo_img}" class="img-responsive"></div>
+                    <ul class="foot-nav">
+                        <li>
+                            <a href="/" >
+                                <div class=" foot-nav-cn">返回首页</div>
+
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a href="/abouts" >
+                                <div class=" foot-nav-cn">关于我们</div>
+
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a href="/products" >
+                                <div class=" foot-nav-cn">产品服务</div>
+
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a href="/newsc" >
+                                <div class=" foot-nav-cn">新闻资讯</div>
+
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a href="/contact" >
+                                <div class=" foot-nav-cn">联系我们</div>
+
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+
+
+
+            </div>
+            <div class="col-md-4 p8">
+
+                <ul class="footlx">
+                    <li><div class="iconfont icon-dizhi_"> 公司地址：{$information.address} </div></li>
+                    <li><div class="iconfont icon-dianhua2"> 电话：{$information.landline} 邮箱：{$information.email}    </div></li>
+                    <li><div class="iconfont icon-list1">   <a href="{$information.beian_url}">{$information.beian_number}</a> </div></li>
+
+                </ul>
+
+
+            </div>
+            <div class="col-md-2">
+
+                <div class="footewm">
+                    <img src="{$information.ewm_img}" class="img-responsive fr">
+                </div>
+
+            </div>
+            <div class="footbq">
+                <div class="fl">{$information.copyright}</div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

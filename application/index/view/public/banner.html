@@ -1,0 +1,36 @@
+<div class="w100 yb-banner">
+    <div class="container-fluid p0">
+
+        <div class="swiper-container-b">
+            <div class="swiper-wrapper">
+
+                {volist name="banner" id="vo"}
+                <div class="swiper-slide">
+                    <a >
+                        <img src="{$vo.image}" class="ani center-block img-responsive"    swiper-animate-effect="fadeInUp"  swiper-animate-duration=".8s" alt="First slide">
+
+                            <div class="textn color-fff ani"   swiper-animate-effect="fadeInUp" swiper-animate-duration=".8s" swiper-animate-delay=".5s" >
+                               <div class="cn"> {$vo.title}</div>
+                                <div class="en"> {$vo.description}</div>
+                            </div>
+
+                    </a>
+                </div>
+                {/volist}
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+</div>

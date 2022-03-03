@@ -1,0 +1,90 @@
+{include file="public/head" /}
+
+<body>
+
+
+
+
+{include file="public/navs" /}
+
+
+{include file="public/banner" /}
+
+
+{include file="public/middle" /}
+<!--内页-->
+
+<div class="page-ny">
+
+    <div class="container p0">
+
+
+        <div class="col-md-12 p8">
+
+                    <div class="page-tit">
+                        <div class="page-cn">{$ftitle.name}</div>
+                        <div class="page-en">{$ftitle.ename}</div>
+                    </div>
+
+        </div>
+
+        <div class="col-md-12 p0">
+
+            <div class="pagecen">
+
+
+                    <ul class="news-ul">
+
+                        {volist name="$list.list" id="vo"}
+                        <li class="col-md-4">
+                            <div class="news-div">
+
+                                <div class="news-img-s">
+                                    <a href="{:url('/news_detail/'.$vo['id'])}"> <img src="{$vo.image}" class="img-responsive"></a>
+                                </div>
+
+                                <div class="newsbody">
+                                    <a href="{:url('/news_detail/'.$vo['id'])}" class="newstit">
+                                        {$vo.title}
+                                    </a>
+                                    <div class="newsnote">
+                                        {$vo.description}
+                                    </div>
+                                    <div class="news-top ">
+                                        <div class="news-time">{$vo.addtime|strtotime|date="Y-m-d",###}</div>
+
+                                    </div>
+                                    <div class="newsmore">
+                                        <a href="{:url('/news_detail/'.$vo['id'])}">READ MORE <div class="iconfont icon-jiantou7"></div></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+                        {/volist}
+
+
+
+                    </ul>
+
+
+                    <div class="fenyeys">
+                        {$list.page}
+                    </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--foot-->
+{include file="public/footer" /}
+{include file="public/script" /}
+
+</body>
+
+
+</html>

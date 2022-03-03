@@ -1,0 +1,156 @@
+{include file="public/head" /}
+
+<body>
+
+
+
+
+{include file="public/navs" /}
+
+
+{include file="public/banner" /}
+
+
+
+<!--内页-->
+<div class="w100 xxbreadcrumb">
+
+    <div class="container p0">
+        <div class="col-md-12 p8">
+            <ul class="breadcrumb fl">
+                <li class="fl"><span class="glyphicon glyphicon-home"></span> 你的位置：</li>
+                <li class="fl">
+                    <a href="/">{$jj_title}</a>
+                </li>
+                <li class="fl">
+                    <a href="{$title.route}">{$title.name}</a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="page-ny">
+
+    <div class="container p0">
+
+        <div class="page-con mt20">
+
+            <div class="col-md-6 p8">
+                <div class="pagea-tit">
+                    <div class="lxwm-name " style="text-align: left;"> <span> {$list.title}</span> · {$list.titles}</div>
+                    <div class="lxwm-note" style="text-align: left;">{$list.description}</div>
+
+
+                </div>
+
+                    <div class="lxwmtel">
+                        {$list.content}
+                    </div>
+
+
+
+
+            </div>
+            <div class="col-md-6 p8">
+                <div class="lxwmform">
+
+                    <form class="form">
+
+                        <div class="form-group">
+                            <label>您的姓名</label>
+                            <input class="form-control" placeholder="请输入您的姓名" type="text" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label>您的电话</label>
+                            <input class="form-control" placeholder="请输入您的电话" type="text" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label>您的留言</label>
+                            <textarea class="form-control mytextarea" placeholder="请输入您的留言" id="remarks" name="remarks"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" onclick="formsubmit()" class="btn mybtn">确认提交</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!--foot-->
+{include file="public/footer" /}
+{include file="public/script" /}
+<script>
+    function formsubmit() {
+        var name=$("input[name=name]").val();
+        var phone=$("input[name=phone]").val();
+        var remarks=$("textarea[name=remarks]").val();
+
+        if(!name)
+        {
+            alert('请填写姓名!');
+            return false;
+        }
+        if(!phone)
+        {
+            alert('请输入手机号码!');
+            return false;
+        }
+
+        //手机号
+        if(!/^1\d{10}$/.test(phone)){
+            alert('请输入正确手机号码！');
+            return false;
+        }
+
+        if(!remarks)
+        {
+            alert('请填写内容!');
+            return false;
+        }
+
+        $.ajax({
+            async:false,
+            url:"{:url('Contact/msg')}",
+            data:{name:name,phone:phone,remarks:remarks},
+            type:"POST",
+            datatype:"TEXT",
+            success:function(data){
+                if(data==1)
+                {
+                    alert("留言成功，感谢你的留言！");
+                    window.location.href="/";
+                }
+                else
+                {
+                    alert("留言失败！");
+                }
+            }
+        });
+
+    }
+</script>
+
+</body>
+
+
+</html>

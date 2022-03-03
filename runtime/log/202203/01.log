@@ -1,0 +1,71 @@
+---------------------------------------------------------------
+[ 2022-03-01T14:26:28+08:00 ] 71.6.232.7 GET 121.36.38.27/
+[运行时间：0.037699s] [吞吐率：26.53req/s] [内存消耗：3,582.44kb] [文件加载：124]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000014s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001143s ]
+[ info ] [ LANG ] /www/wwwroot/jisheng.cdjklm.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => NULL,
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+  'host' => '121.36.38.27',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/jisheng.cdjklm.com/application/index/lang/zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/jisheng.cdjklm.com/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/jisheng.cdjklm.com/application/index/view/index/index.html [ array (
+  0 => 'token',
+  1 => 'nav',
+  2 => 'ftitle',
+  3 => 'title',
+  4 => 'id',
+  5 => 'type',
+  6 => 'types',
+  7 => 'footer_nav',
+  8 => 'link',
+  9 => 'information',
+  10 => 'seo_title',
+  11 => 'jj_title',
+  12 => 'seo_wztitle',
+  13 => 'seo_keywords',
+  14 => 'seo_description',
+  15 => 'bkxx',
+  16 => 'cart',
+  17 => 'subtotal',
+  18 => 'banner',
+  19 => 'bannerx',
+  20 => 'syaboutx',
+  21 => 'youshi',
+  22 => 'youshix',
+  23 => 'case_t',
+  24 => 'news_ta',
+  25 => 'news_tja',
+  26 => 'news_tjab',
+  27 => 'news_tb',
+  28 => 'news_tjb',
+  29 => 'news_tc',
+  30 => 'news_tjc',
+) ]
+[ info ] [ LOG ] INIT File

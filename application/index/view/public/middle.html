@@ -1,0 +1,14 @@
+
+
+<div class="page-ny-nav">
+
+
+
+    <ul class="ny-nav-ul">
+        {volist name="types" id="vo"}
+        <li><a href="{:url($vo['route'].$vo['id'])}" {if condition="$id eq  $vo.id "}class="active"{/if}>{$vo.name}<small>{$vo.ename}</small></a></li>
+        {/volist}
+    </ul>
+
+
+</div>
